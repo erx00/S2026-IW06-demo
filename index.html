@@ -1,0 +1,47 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Fieldnote — Birding chat</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <main>
+    <h1>Fieldnote</h1>
+    <p>Upload a bird photo, then ask questions or share observations.</p>
+
+    <aside aria-label="Model and data information">
+      <p id="model-status" role="status">Checking the Gemini connection…</p>
+      <p>Gemini is a proprietary model hosted by Google; it does not run on your device.
+        Selecting a photo sends a resized copy to Google. Each question sends that photo
+        and the entire conversation again.</p>
+      <p>Fieldnote keeps your conversation in this tab’s memory only. Refreshing or starting
+        over clears it. Google’s handling of submitted data is governed by
+        <a href="https://ai.google.dev/gemini-api/terms" target="_blank" rel="noopener noreferrer">its API terms</a>.</p>
+      <p>AI identifications can be wrong. Check uncertain answers with a field guide.</p>
+    </aside>
+
+    <section aria-label="Upload a photo">
+      <label for="image-input">Choose a bird photo (JPG, PNG or WebP, up to 10 MB)</label>
+      <input id="image-input" type="file" accept="image/jpeg,image/png,image/webp">
+      <img id="preview-image" alt="Your selected bird photo" hidden>
+      <button id="new-observation" type="button">Start over / remove photo</button>
+    </section>
+
+    <div id="chat-messages" role="log" aria-label="Conversation" aria-live="polite"></div>
+    <p id="result-status" role="status">Choose a photo to begin.</p>
+    <p id="chat-error" role="alert" hidden></p>
+    <button id="retry-button" type="button" hidden>Retry last question</button>
+
+    <form id="chat-form">
+      <label for="chat-input">Ask a question or add an observation</label>
+      <textarea id="chat-input" rows="3" maxlength="4000" required disabled
+        placeholder="For example: I saw it near a pond in New Jersey."></textarea>
+      <button id="send-button" type="submit" disabled>Send</button>
+    </form>
+    <p class="note">Up to 20 questions per observation. Your API key stays on the Python server.</p>
+  </main>
+  <script type="module" src="app.js"></script>
+</body>
+</html>
