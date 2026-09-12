@@ -78,6 +78,7 @@ async function sendMessage(text) {
     if (activeConversation !== conversation) {
       return;
     }
+    // Push the answer to the conversation.
     activeConversation.messages.push({ role: "model", text: answer });
     if (activeConversation.messages.length >= MAX_CONVERSATION_MESSAGES) {
       showStatus("Start over to begin another conversation.");

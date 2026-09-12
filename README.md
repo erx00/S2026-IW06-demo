@@ -230,3 +230,7 @@ deno run --allow-read tests/app_test.mjs
 The tests use simulated model responses and do not submit requests to Google. They cover conversation packaging, authentication headers, validation, errors, public routes, retries, resets, and handling late responses.
 
 For a live check, start the app with your key, upload a known bird photo, and ask a follow-up that adds location or behavior. Check that the answer uses the context and that starting over clears the sighting.
+
+## AI Use Disclosure
+
+Fieldnote was developed with the help of ChatGPT. The developer conceptualized the application and its functionality and determined high-level implementation details. ChatGPT handled low-level implementation details with developer oversight. Because the purpose of this demo is to give an idea of how to integrate AI into an application via API access, the functionality of the application is purposefully restricted to provide a minimal working example of a request pipeline, and the code is organized to isolate the functions for the request pipeline from other functions, such as those for displaying the interface, diagnosing problems, and handling errors. To guard against undesirable outputs, the developer instructed ChatGPT to use familiar packages so that he could verify the output. The developer also asked ChatGPT to explain any written code. The developer is solely responsible for any errors.
